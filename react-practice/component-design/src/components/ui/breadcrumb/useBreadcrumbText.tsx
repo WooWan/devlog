@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 
-const BreadcrumbContexts = React.createContext([]);
-
-const BreadcrumbProvider = ({ children }) => {
+const BreadcrumbContext = React.createContext([]);
+const BreadcrumbProvider = ({ children }: { children: React.ReactNode }) => {
   const portalNodeState = useState();
 
   return (
-    <Context.Provider value={portalNodeState}>{children}</Context.Provider>
+    <BreadcrumbContext.Provider value={portalNodeState}>
+      {children}
+    </BreadcrumbContext.Provider>
   );
 };
 
